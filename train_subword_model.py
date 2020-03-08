@@ -4,7 +4,6 @@ import json
 import tempfile
 import argparse
 
-from bs4 import BeautifulSoup
 from sentencepiece import SentencePieceTrainer as sp_trainer
 
 TEXT_LENS = []
@@ -27,18 +26,6 @@ def read(path):
             TITLE_LENS.append(tokens_tt)
 
             yield text, title
-
-
-def parse_ria_json(path):
-    with open(path, "r", encoding="utf-8") as r:
-        for line in r:
-            data = json.loads(line.strip())
-            title = data["title"]
-            text = data["text"]
-            clean_text = BeautifulSoup(text, 'html.parser').text
-            if not clean_text or not title:
-                continue
-            yield clean_text, title
    
 
 def train_subwords(train_path, model_path, model_type, vocab_size):

@@ -2,7 +2,6 @@ import json
 import csv
 from typing import Dict
 
-from bs4 import BeautifulSoup
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader
 from allennlp.data.tokenizers.tokenizer import Tokenizer
 from allennlp.data.token_indexers.token_indexer import TokenIndexer
@@ -41,17 +40,6 @@ class RIAReader(SummarizationReader):
         )
 
     def parse_set(self, path):
-
-    #     with open(path, "r", encoding="utf-8") as r:
-    #         for line in r:
-    #             data = json.loads(line.strip())
-    #             title = data["title"]
-    #             text = data["text"]
-    #             clean_text = BeautifulSoup(text, 'html.parser').text.replace('\xa0', ' ').replace('\n', ' ')
-    #             if not clean_text or not title:
-    #                 continue
-    #             yield clean_text, title
-
         with open(path) as f:
             lines = csv.DictReader(f)
             next(lines, None)
