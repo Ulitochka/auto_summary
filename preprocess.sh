@@ -10,7 +10,7 @@ VOCAB_PATH=$(realpath "${CODE_PATH}"/vocs/)
 CONFIG_PATH=$(realpath "${CODE_PATH}"/configs/)
 
 PYTHONHASHSEED=128500 PYTHONPATH=${ASPECT_EXTRACTOR_PATH} \
-    python3 preprocess.py \
+    python3.7 preprocess.py \
     --train-path "${DATA_PATH}"/train.csv \
     --vocabulary-path "${VOCAB_PATH}"/ \
     --config-path "${CONFIG_PATH}"/custom.json

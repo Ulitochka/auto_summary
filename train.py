@@ -1,4 +1,6 @@
 import os
+from pprint import pprint
+import logging
 import argparse
 
 import numpy
@@ -11,6 +13,9 @@ from allennlp.data.dataset_readers.dataset_reader import DatasetReader
 from allennlp.models.model import Model
 
 from summarus import *
+
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 def set_seed(seed):
@@ -47,8 +52,7 @@ def train(model_path, train_path, val_path, seed, vocabulary_path=None, config_p
 
     iterator = DataIterator.from_params(params.pop('iterator'))
     iterator.index_with(vocabulary)
-    trainer = Trainer.from_params(model, model_path, iterator,
-                                  train_dataset, val_dataset, params.pop('trainer'))
+    trainer = Trainer.from_params(model, model_path, iterator, train_dataset, val_dataset, params.pop('trainer'))
     trainer.train()
 
 

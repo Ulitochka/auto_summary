@@ -52,7 +52,7 @@
   "reader": {
       "tokenizer": {
           "type": "subword",
-          "model_path": "models/bpe.model"
+          "model_path": "/home/m.domrachev/repos/auto_summary/models/bpe.model"
       },
       "source_max_tokens": 800,
       "target_max_tokens": 200,

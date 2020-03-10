@@ -9,6 +9,6 @@ DATA_PATH=$(realpath "${CODE_PATH}"/data/)
 MODEL_PATH=$(realpath "${CODE_PATH}"/models/)
 
 PYTHONHASHSEED=128500 PYTHONPATH=${ASPECT_EXTRACTOR_PATH} \
-    python3 train_subword_model.py \
+    python3.7 train_subword_model.py \
     --train-path "${DATA_PATH}"/train.csv \
     --model-path "${MODEL_PATH}"/
